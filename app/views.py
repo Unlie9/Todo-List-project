@@ -33,6 +33,12 @@ class UpdateTaskView(UpdateView):
     success_url = reverse_lazy("app:index")
 
 
+class DeleteTaskView(DeleteView):
+    model = Task
+    template_name = "todo_list/delete_task.html"
+    success_url = reverse_lazy("app:index")
+
+
 class TagListView(ListView):
     model = Tag
     template_name = "todo_list/tag.html"

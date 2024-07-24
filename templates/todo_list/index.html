@@ -19,7 +19,7 @@
 						{{ tag }}
 					{% endfor %}	
 					<a href="{% url 'app:update-task' task.pk %}" style="padding-left: 10px; color: lightskyblue">Update</a>
-					<a style="color: red">Delete</a>
+					<a href="{% url 'app:delete-task' task.pk %}" style="color: red">Delete</a>
 				</li>
 			</ul>	
 			{% endfor %}

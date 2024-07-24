@@ -22,14 +22,8 @@ class TaskForm(forms.ModelForm):
         widget=forms.CheckboxSelectMultiple,
         required=False,
     )
-    deadline = forms.DateField(
-        widget=forms.DateInput(
-            attrs={'type': 'datetime-local'}
-        ),
-        required=False
-    )
 
     class Meta:
         model = Task
-        fields = ['content', 'tags', 'deadline']
+        fields = ['content', 'tags']
 

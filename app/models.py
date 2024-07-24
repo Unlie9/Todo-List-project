@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.db import models
 
 
@@ -17,3 +19,7 @@ class Task(models.Model):
 
     class Meta:
         ordering = ['done', '-creation_date']
+
+    def deadline_time_1day(self):
+        self.deadline = self.creation_date + timedelta(days=1)
+        return self.deadline

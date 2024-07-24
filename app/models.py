@@ -14,3 +14,6 @@ class Task(models.Model):
     deadline = models.DateTimeField(null=True, blank=True)
     done = models.BooleanField(default=False, blank=True, null=True)
     tags = models.ManyToManyField(Tag)
+
+    class Meta:
+        ordering = ['-creation_date']

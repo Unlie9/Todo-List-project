@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
@@ -17,10 +17,6 @@ class IndexView(ListView):
 
         context['tasks'] = tasks
         return context
-
-
-def task_done(request, task_id):
-    pass
 
 
 class CreateTaskView(CreateView):
@@ -74,3 +70,17 @@ class DeleteTagView(DeleteView):
     template_name = "todo_list/delete_tag.html"
     success_url = reverse_lazy("app:tags")
 
+
+def complete_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    task.done = True
+    task.save()
+
+    return redirect("app:index")
+
+
+def undo_task(request, task_id):
+    task = get_object_or_404(Task, pk=task_id)
+    task.done = False
+    task.save()
+    return redirect("app:index")

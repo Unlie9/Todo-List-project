@@ -4,34 +4,44 @@
 
 {% block content %}
 	<div class="todo-container">
-	<h1 class="todo-header">Todo List</h1>
-	<h3 class="tag-add">
-		<a href="{% url "app:add-task" %}" class="btn btn-primary w-20">add</a>
-	</h3>
-	<div class="table-responsive">
+		<h1 class="todo-header">Todo List</h1>
+		<h3 class="tag-add">
+			<a href="{% url "app:add-task" %}" class="btn btn-primary w-20">add</a>
+		</h3>
+		<div class="table-responsive">
 			{% for task in tasks %}
-			<ul>	
-				<li>
-					{{ task.content }}
-					{% if task.done %}
-						<label style="color: green">Done</label>
-					{% else %}
-						<label style="color: red">Not done</label>
-					{% endif %}
-				</li>
-				<li>Created {{ task.creation_date }} Deadline {{ task.deadline }}</li>
-				<li>
-					Tags:
-					{% for tag in task.tags.all %}
-						{{ tag }}
-					{% endfor %}	
-					<a href="{% url 'app:update-task' task.pk %}" style="padding-left: 10px; color: lightskyblue">Update</a>
-					<a href="{% url 'app:delete-task' task.pk %}" style="color: red">Delete</a>
-				</li>
-			</ul>	
+				<ul>
+					<li>
+						{{ task.content }}
+						{% if task.done %}
+							<label style="color: green">Done</label>
+						{% else %}
+							<label style="color: red">Not done</label>
+						{% endif %}
+						<div class="todo-actions">
+							{% if task.done %}
+								<button class="btn-custom"><a href="{% url 'app:undo-task' task.id %}"
+																							style="color: white; text-decoration: none;">Undo</a></button>
+							{% else %}
+								<button class="btn-custom"><a href="{% url 'app:complete-task' task.id %}"
+																							style="color: white; text-decoration: none;">Complete</a></button>
+							{% endif %}
+						</div>
+					</li>
+
+					<li>Created {{ task.creation_date }} Deadline {{ task.deadline }}</li>
+					<li>
+						Tags:
+						{% for tag in task.tags.all %}
+							{{ tag }}
+						{% endfor %}
+						<a href="{% url 'app:update-task' task.pk %}" style="padding-left: 10px; color: lightskyblue">Update</a>
+						<a href="{% url 'app:delete-task' task.pk %}" style="color: red">Delete</a>
+					</li>
+				</ul>
 			{% endfor %}
-		<div class="input-group mt-3">
+			<div class="input-group mt-3">
+			</div>
 		</div>
-	</div>
 	</div>
 {% endblock %}

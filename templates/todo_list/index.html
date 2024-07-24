@@ -11,7 +11,14 @@
 	<div class="table-responsive">
 			{% for task in tasks %}
 			<ul>	
-				<li>{{ task.content }}</li>
+				<li>
+					{{ task.content }}
+					{% if task.done %}
+						<label style="color: green">Done</label>
+					{% else %}
+						<label style="color: red">Not done</label>
+					{% endif %}
+				</li>
 				<li>Created {{ task.creation_date }} Deadline {{ task.deadline }}</li>
 				<li>
 					Tags:

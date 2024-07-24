@@ -19,6 +19,10 @@ class IndexView(ListView):
         return context
 
 
+def task_done(request, task_id):
+    pass
+
+
 class CreateTaskView(CreateView):
     model = Task
     form_class = TaskForm

@@ -115,3 +115,33 @@ ul {
     padding-bottom: 10px;
     margin-bottom: 10px;
 }
+
+.todo-container {
+    max-width: 800px;
+    margin: auto;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.todo-header {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+.tag-add a {
+    font-size: 1.2em;
+}
+
+.card-title {
+    font-weight: bold;
+}

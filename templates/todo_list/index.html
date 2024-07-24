@@ -18,7 +18,7 @@
 					{% for tag in task.tags.all %}
 						{{ tag }}
 					{% endfor %}	
-					<a style="padding-left: 10px; color: lightskyblue">Update</a>
+					<a href="{% url 'app:update-task' task.pk %}" style="padding-left: 10px; color: lightskyblue">Update</a>
 					<a style="color: red">Delete</a>
 				</li>
 			</ul>	

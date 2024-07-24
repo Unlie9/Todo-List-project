@@ -1,0 +1,99 @@
+/* static/styles.css */
+body {
+    background-color: #f3f0ff;
+    color: #4b0082;
+    font-family: Arial, sans-serif;
+}
+
+.todo-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.todo-header {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #4b0082;
+}
+
+.todo-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-item:last-child {
+    border-bottom: none;
+}
+
+.todo-item.completed {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+
+.input-group {
+    margin-top: 20px;
+}
+
+.btn-primary {
+    background-color: #4b0082;
+    border-color: #4b0082;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #6a0dad;
+    border-color: #6a0dad;
+    color: white;
+}
+
+/* Additional styles for sidebar */
+.sidebar {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.sidebar-header {
+    color: #4b0082;
+    margin-bottom: 20px;
+}
+
+.list-group-item {
+    background-color: #f8f9fa;
+    border: none;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-group-item a {
+    color: #4b0082;
+    text-decoration: none;
+}
+
+.list-group-item a:hover {
+    color: #6a0dad;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.btn-custom {
+    background-color: #4b0082;
+    color: white;
+    border: 1px solid #4b0082;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #6a0dad;
+    color: white;
+}

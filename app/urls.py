@@ -2,10 +2,11 @@ from django.urls import (
     path,
     include
 )
-from app.views import IndexView, TagListView, CreateTagView, UpdateTagView, DeleteTagView
+from app.views import IndexView, TagListView, CreateTagView, UpdateTagView, DeleteTagView, CreateTaskView
 
 urlpatterns = [
     path("", IndexView.as_view(), name='index'),
+    path("add_task/", CreateTaskView.as_view(), name='add-task'),
     path("tags/", TagListView.as_view(), name='tags'),
     path("tags/add", CreateTagView.as_view(), name='add-tag'),
     path("tags/<int:pk>/update", UpdateTagView.as_view(), name='update-tag'),

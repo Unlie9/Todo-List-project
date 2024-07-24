@@ -1,6 +1,6 @@
 from django import forms
 
-from app.models import Tag
+from app.models import Tag, Task
 
 
 class TagForm(forms.ModelForm):
@@ -9,4 +9,27 @@ class TagForm(forms.ModelForm):
     class Meta:
         model = Tag
         fields = ['name']
+
+
+class TaskForm(forms.ModelForm):
+    content = forms.CharField(
+        widget=forms.TextInput(
+            attrs={'class': 'form-control'}
+        )
+    )
+    tags = forms.ModelMultipleChoiceField(
+        queryset=Tag.objects.all(),
+        widget=forms.CheckboxSelectMultiple,
+        required=False,
+    )
+    deadline = forms.DateField(
+        widget=forms.DateInput(
+            attrs={'type': 'datetime-local'}
+        ),
+        required=False
+    )
+
+    class Meta:
+        model = Task
+        fields = ['content', 'tags', 'deadline']
 

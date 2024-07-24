@@ -3,17 +3,28 @@
 {% block title %}Home - Todo List{% endblock %}
 
 {% block content %}
-<div class="todo-container">
-    <h1 class="todo-header">Todo List</h1>
-    <div class="todo-items">
-        
-    </div>
-    <div class="input-group mt-3">
-        <input type="text" class="form-control" placeholder="Add new task" aria-label="New task" aria-describedby="add-btn">
-        <div class="input-group-append">
-            <button class="btn btn-primary" id="add-btn" type="button">Add</button>
-        </div>
-    </div>
-</div>
+	<div class="todo-container">
+	<h1 class="todo-header">Todo List</h1>
+	<h3 class="tag-add">
+		<a href="{% url "app:add-task" %}" class="btn btn-primary w-20">add</a>
+	</h3>
+	<div class="table-responsive">
+			{% for task in tasks %}
+			<ul>	
+				<li>{{ task.content }}</li>
+				<li>Created {{ task.creation_date }} Deadline {{ task.deadline }}</li>
+				<li>
+					Tags:
+					{% for tag in task.tags.all %}
+						{{ tag }}
+					{% endfor %}	
+					<a style="padding-left: 10px; color: lightskyblue">Update</a>
+					<a style="color: red">Delete</a>
+				</li>
+			</ul>	
+			{% endfor %}
+		<div class="input-group mt-3">
+		</div>
+	</div>
+	</div>
 {% endblock %}
-

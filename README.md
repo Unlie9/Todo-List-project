@@ -1,4 +1,5 @@
-# Todo-List-project
+## Todo-List-project
+# Basic CRUD functionality
 
 ## Installation
 ```
